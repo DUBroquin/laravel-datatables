@@ -1,11 +1,11 @@
 <?php
 
-namespace Yajra\Datatables\Contracts;
+namespace dubroquin\datatables\Contracts;
 
 /**
  * Interface DataTableEngineContract
  *
- * @package Yajra\Datatables\Contracts
+ * @package dubroquin\datatables\Contracts
  * @author  Arjay Angeles <aqangeles@gmail.com>
  */
 interface DataTableEngineContract

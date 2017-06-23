@@ -1,13 +1,13 @@
 <?php
 
-namespace Yajra\Datatables\Transformers;
+namespace dubroquin\datatables\Transformers;
 
 use Illuminate\Support\Collection;
 
 /**
  * Class DataTransformer.
  *
- * @package Yajra\Datatables\Transformers
+ * @package dubroquin\datatables\Transformers
  * @author  Arjay Angeles <aqangeles@gmail.com>
  */
 class DataTransformer

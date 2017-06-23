@@ -1,13 +1,13 @@
 <?php
 
-namespace Yajra\Datatables;
+namespace dubroquin\datatables;
 
 use Illuminate\Support\Collection;
 
 /**
  * Class Datatables.
  *
- * @package Yajra\Datatables
+ * @package dubroquin\datatables
  * @author  Arjay Angeles <aqangeles@gmail.com>
  */
 class Datatables
@@ -15,21 +15,21 @@ class Datatables
     /**
      * Datatables request object.
      *
-     * @var \Yajra\Datatables\Request
+     * @var \dubroquin\datatables\Request
      */
     protected $request;
 
     /**
      * HTML builder instance.
      *
-     * @var \Yajra\Datatables\Html\Builder
+     * @var \dubroquin\datatables\Html\Builder
      */
     protected $html;
 
     /**
      * Datatables constructor.
      *
-     * @param \Yajra\Datatables\Request $request
+     * @param \dubroquin\datatables\Request $request
      */
     public function __construct(Request $request)
     {
@@ -68,7 +68,7 @@ class Datatables
     /**
      * Get request object.
      *
-     * @return \Yajra\Datatables\Request
+     * @return \dubroquin\datatables\Request
      */
     public function getRequest()
     {
@@ -79,7 +79,7 @@ class Datatables
      * Datatables using Query Builder.
      *
      * @param \Illuminate\Database\Query\Builder|mixed $builder
-     * @return \Yajra\Datatables\Engines\QueryBuilderEngine
+     * @return \dubroquin\datatables\Engines\QueryBuilderEngine
      */
     public function queryBuilder($builder)
     {
@@ -90,7 +90,7 @@ class Datatables
      * Datatables using Eloquent Builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder|mixed $builder
-     * @return \Yajra\Datatables\Engines\EloquentEngine
+     * @return \dubroquin\datatables\Engines\EloquentEngine
      */
     public function eloquent($builder)
     {
@@ -101,7 +101,7 @@ class Datatables
      * Datatables using Collection.
      *
      * @param \Illuminate\Support\Collection|mixed $collection
-     * @return \Yajra\Datatables\Engines\CollectionEngine
+     * @return \dubroquin\datatables\Engines\CollectionEngine
      */
     public function collection($collection)
     {
@@ -115,12 +115,12 @@ class Datatables
     /**
      * Get html builder instance.
      *
-     * @return \Yajra\Datatables\Html\Builder
+     * @return \dubroquin\datatables\Html\Builder
      * @throws \Exception
      */
     public function getHtmlBuilder()
     {
-        if (! class_exists('\Yajra\Datatables\Html\Builder')) {
+        if (! class_exists('\dubroquin\datatables\Html\Builder')) {
             throw new \Exception('Please install yajra/laravel-datatables-html to be able to use this function.');
         }
 

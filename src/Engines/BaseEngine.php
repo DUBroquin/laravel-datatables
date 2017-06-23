@@ -1,20 +1,20 @@
 <?php
 
-namespace Yajra\Datatables\Engines;
+namespace dubroquin\datatables\Engines;
 
 use Illuminate\Contracts\Logging\Log;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Str;
 use League\Fractal\Resource\Collection;
-use Yajra\Datatables\Contracts\DataTableEngineContract;
-use Yajra\Datatables\Exception;
-use Yajra\Datatables\Helper;
-use Yajra\Datatables\Processors\DataProcessor;
+use dubroquin\datatables\Contracts\DataTableEngineContract;
+use dubroquin\datatables\Exception;
+use dubroquin\datatables\Helper;
+use dubroquin\datatables\Processors\DataProcessor;
 
 /**
  * Class BaseEngine.
  *
- * @package Yajra\Datatables\Engines
+ * @package dubroquin\datatables\Engines
  * @author  Arjay Angeles <aqangeles@gmail.com>
  */
 abstract class BaseEngine implements DataTableEngineContract
@@ -22,7 +22,7 @@ abstract class BaseEngine implements DataTableEngineContract
     /**
      * Datatables Request object.
      *
-     * @var \Yajra\Datatables\Request
+     * @var \dubroquin\datatables\Request
      */
     public $request;
 
@@ -585,46 +585,46 @@ abstract class BaseEngine implements DataTableEngineContract
      */
     protected function render($object = false)
     {
-        $output = array_merge([
-            'draw' => (int) $this->request->input('draw'),
-            'recordsTotal' => $this->totalRecords,
-            'recordsFiltered' => $this->filteredRecords,
-        ], $this->appends);
+        if($this->request->has('sort')){
+            $sorts = explode(',', $this->request->sort);
 
-        if (isset($this->transformer)) {
-            $fractal = app('datatables.fractal');
+            foreach ($sorts as $sort) {
+                list($sortCol, $sortDir) = explode('|', $sort);
 
-            if ($this->serializer) {
-                $fractal->setSerializer($this->createSerializer());
+                if($sortDir == 'asc'){
+                    $sorted = $this->getProcessedData(true)->sortBy($sortCol);
+                }else{
+                    $sorted = $this->getProcessedData(true)->sortByDesc($sortCol);
+                }
+
             }
-
-            //Get transformer reflection
-            //Firs method parameter should be data/object to transform
-            $reflection = new \ReflectionMethod($this->transformer, 'transform');
-            $parameter = $reflection->getParameters()[0];
-
-            //If parameter is class assuming it requires object
-            //Else just pass array by default
-            if ($parameter->getClass()) {
-                $resource = new Collection($this->results(), $this->createTransformer());
-            } else {
-                $resource = new Collection(
-                    $this->getProcessedData($object),
-                    $this->createTransformer()
-                );
-            }
-
-            $collection = $fractal->createData($resource)->toArray();
-            $output['data'] = $collection['data'];
-        } else {
-            $output['data'] = Helper::transform($this->getProcessedData($object));
+        }else{
+            $sorted = $this->getProcessedData(true);
         }
 
-        if ($this->isDebugging()) {
-            $output = $this->showDebugger($output);
+        $final = collect();
+
+        foreach($sorted as $sort){
+            $final->push($sort);
         }
 
-        return new JsonResponse($output, 200, config('datatables.json.header', []), config('datatables.json.options', 0));
+        $perPage = $this->request->has('per_page') ? (int)$this->request->per_page : null;
+        $pagination = new LengthAwarePaginator(
+            $final->forPage(Paginator::resolveCurrentPage(), $perPage),
+            $final->count(), $perPage,
+            Paginator::resolveCurrentPage(),
+            ['path' => Paginator::resolveCurrentPath()]
+        );
+
+
+        $pagination->appends([
+            'sort' => $this->request->sort,
+            'filter' => $this->request->filter,
+            'per_page' => $this->request->per_page
+        ]);
+
+
+        return new JsonResponse($pagination, 200);
     }
 
     /**
@@ -663,14 +663,7 @@ abstract class BaseEngine implements DataTableEngineContract
      */
     protected function getProcessedData($object = false)
     {
-        $processor = new DataProcessor(
-            $this->results(),
-            $this->columnDef,
-            $this->templates,
-            $this->request->input('start')
-        );
-
-        return $processor->process($object);
+        return $this->results();
     }
 
     /**

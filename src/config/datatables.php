@@ -49,9 +49,9 @@ return [
      * This is where you can register your custom datatables engine.
      */
     'engines'        => [
-        'eloquent'   => Yajra\Datatables\Engines\EloquentEngine::class,
-        'query'      => Yajra\Datatables\Engines\QueryBuilderEngine::class,
-        'collection' => Yajra\Datatables\Engines\CollectionEngine::class,
+        'eloquent'   => dubroquin\datatables\Engines\EloquentEngine::class,
+        'query'      => dubroquin\datatables\Engines\QueryBuilderEngine::class,
+        'collection' => dubroquin\datatables\Engines\CollectionEngine::class,
     ],
 
     /**
@@ -74,7 +74,7 @@ return [
      * User friendly message to be displayed on user if error occurs.
      * Possible values:
      * null             - The exception message will be used on error response.
-     * 'throw'          - Throws a \Yajra\Datatables\Exception. You can then use your custom error handler if needed.
+     * 'throw'          - Throws a \dubroquin\datatables\Exception. You can then use your custom error handler if needed.
      * 'custom message' - Any friendly message to be displayed to the user. You can also use translation key.
      */
     'error'          => env('DATATABLES_ERROR', null),

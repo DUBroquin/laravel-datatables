@@ -1,14 +1,14 @@
 <?php
 
-namespace Yajra\Datatables\Tests\Integration;
+namespace dubroquin\datatables\Tests\Integration;
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Http\JsonResponse;
-use Yajra\Datatables\Datatables;
-use Yajra\Datatables\Engines\CollectionEngine;
-use Yajra\Datatables\Facades\Datatables as DatatablesFacade;
-use Yajra\Datatables\Tests\Models\User;
-use Yajra\Datatables\Tests\TestCase;
+use dubroquin\datatables\Datatables;
+use dubroquin\datatables\Engines\CollectionEngine;
+use dubroquin\datatables\Facades\Datatables as DatatablesFacade;
+use dubroquin\datatables\Tests\Models\User;
+use dubroquin\datatables\Tests\TestCase;
 
 class CollectionEngineTest extends TestCase
 {

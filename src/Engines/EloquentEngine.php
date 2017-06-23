@@ -1,15 +1,15 @@
 <?php
 
-namespace Yajra\Datatables\Engines;
+namespace dubroquin\datatables\Engines;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
-use Yajra\Datatables\Request;
+use dubroquin\datatables\Request;
 
 /**
  * Class EloquentEngine.
  *
- * @package Yajra\Datatables\Engines
+ * @package dubroquin\datatables\Engines
  * @author  Arjay Angeles <aqangeles@gmail.com>
  */
 class EloquentEngine extends QueryBuilderEngine
@@ -32,7 +32,7 @@ class EloquentEngine extends QueryBuilderEngine
 
     /**
      * @param mixed $model
-     * @param \Yajra\Datatables\Request $request
+     * @param \dubroquin\datatables\Request $request
      */
     public function __construct($model, Request $request)
     {

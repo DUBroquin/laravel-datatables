@@ -1,11 +1,11 @@
 <?php
 
-namespace Yajra\Datatables\Tests\Integration;
+namespace dubroquin\datatables\Tests\Integration;
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Yajra\Datatables\Datatables;
-use Yajra\Datatables\Tests\Models\Post;
-use Yajra\Datatables\Tests\TestCase;
+use dubroquin\datatables\Datatables;
+use dubroquin\datatables\Tests\Models\Post;
+use dubroquin\datatables\Tests\TestCase;
 
 class BelongsToRelationTest extends TestCase
 {

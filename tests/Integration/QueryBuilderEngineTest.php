@@ -1,15 +1,15 @@
 <?php
 
-namespace Yajra\Datatables\Tests\Integration;
+namespace dubroquin\datatables\Tests\Integration;
 
 use DB;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Http\JsonResponse;
-use Yajra\Datatables\Datatables;
-use Yajra\Datatables\Engines\QueryBuilderEngine;
-use Yajra\Datatables\Facades\Datatables as DatatablesFacade;
-use Yajra\Datatables\Tests\TestCase;
+use dubroquin\datatables\Datatables;
+use dubroquin\datatables\Engines\QueryBuilderEngine;
+use dubroquin\datatables\Facades\Datatables as DatatablesFacade;
+use dubroquin\datatables\Tests\TestCase;
 
 class QueryBuilderEngineTest extends TestCase
 {

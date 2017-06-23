@@ -14,7 +14,7 @@
 This package is created to handle [server-side](https://www.datatables.net/manual/server-side) works of [DataTables](http://datatables.net) jQuery Plugin via [AJAX option](https://datatables.net/reference/option/ajax) by using Eloquent ORM, Fluent Query Builder or Collection.
 
 ```php
-use Yajra\Datatables\Facades\Datatables;
+use dubroquin\datatables\Facades\Datatables;
 
 // Using Eloquent
 return Datatables::eloquent(User::query())->make(true);
@@ -68,10 +68,10 @@ $ composer require yajra/laravel-datatables-oracle:^7.5
 ```
 
 #### Service Provider
-`Yajra\Datatables\DatatablesServiceProvider::class`
+`dubroquin\datatables\DatatablesServiceProvider::class`
 
 #### Facade
-`Datatables` facade is automatically registered as an alias for `Yajra\Datatables\Facades\Datatables` class. 
+`Datatables` facade is automatically registered as an alias for `dubroquin\datatables\Facades\Datatables` class. 
 
 #### Configuration and Assets
 ```bash

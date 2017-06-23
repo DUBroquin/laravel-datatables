@@ -5,8 +5,8 @@
   - php artisan vendor:publish --tag=datatables-buttons --force
 
 ## Upgrading from v5.x to v6.x
-  - Change all occurrences of `yajra\Datatables` to `Yajra\Datatables`. (Use Sublime's find and replace all for faster update). 
+  - Change all occurrences of `dubroquin\datatables` to `dubroquin\datatables`. (Use Sublime's find and replace all for faster update). 
   - Remove `Datatables` facade registration.
-  - Temporarily comment out `Yajra\Datatables\DatatablesServiceProvider`.
+  - Temporarily comment out `dubroquin\datatables\DatatablesServiceProvider`.
   - Update package version on your composer.json and use `yajra/laravel-datatables-oracle: ~6.0`
-  - Uncomment the provider `Yajra\Datatables\DatatablesServiceProvider`. 
+  - Uncomment the provider `dubroquin\datatables\DatatablesServiceProvider`. 

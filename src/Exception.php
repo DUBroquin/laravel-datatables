@@ -1,6 +1,6 @@
 <?php
 
-namespace Yajra\Datatables;
+namespace dubroquin\datatables;
 
 class Exception extends \Exception
 {

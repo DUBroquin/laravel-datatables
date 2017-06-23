@@ -1,6 +1,6 @@
 <?php
 
-namespace Yajra\Datatables;
+namespace dubroquin\datatables;
 
 use Illuminate\Support\ServiceProvider;
 use League\Fractal\Manager;
@@ -9,7 +9,7 @@ use League\Fractal\Serializer\DataArraySerializer;
 /**
  * Class DatatablesServiceProvider.
  *
- * @package Yajra\Datatables
+ * @package dubroquin\datatables
  * @author  Arjay Angeles <aqangeles@gmail.com>
  */
 class DatatablesServiceProvider extends ServiceProvider
@@ -33,6 +33,11 @@ class DatatablesServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/config/datatables.php' => config_path('datatables.php'),
         ], 'datatables');
+
+        // Publish Vue.js files
+        $this->publishes([
+            __DIR__.'/resources/' => resource_path('/assets/js/components/commons')
+        ], 'vuetable');
     }
 
     /**
@@ -87,7 +92,7 @@ class DatatablesServiceProvider extends ServiceProvider
     {
         if (class_exists('Illuminate\Foundation\AliasLoader')) {
             $loader = \Illuminate\Foundation\AliasLoader::getInstance();
-            $loader->alias('Datatables', \Yajra\Datatables\Facades\Datatables::class);
+            $loader->alias('Datatables', \dubroquin\datatables\Facades\Datatables::class);
         }
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Yajra\Datatables;
+namespace dubroquin\datatables;
 
 use Exception;
 use Illuminate\Http\Request as IlluminateRequest;
@@ -8,7 +8,7 @@ use Illuminate\Http\Request as IlluminateRequest;
 /**
  * Class Request.
  *
- * @package Yajra\Datatables
+ * @package dubroquin\datatables
  * @method input($key, $default = null)
  * @method has($key)
  * @method query($key, $default = null)
