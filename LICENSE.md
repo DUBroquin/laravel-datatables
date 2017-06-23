@@ -1,5 +1,7 @@
 (The MIT License)
 
+This package is a fork of yajra/laravel-datatables created by Arjay Angeles <aqangeles@gmail.com>
+
 Copyright (c) 2013-2017 Arjay Angeles <aqangeles@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining
