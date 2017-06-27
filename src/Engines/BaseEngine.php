@@ -8,8 +8,8 @@ use Illuminate\Support\Str;
 use League\Fractal\Resource\Collection;
 use dubroquin\datatables\Contracts\DataTableEngineContract;
 use dubroquin\datatables\Exception;
-use dubroquin\datatables\Helper;
-use dubroquin\datatables\Processors\DataProcessor;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 
 /**
  * Class BaseEngine.
