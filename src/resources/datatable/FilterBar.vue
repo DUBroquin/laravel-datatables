@@ -1,5 +1,5 @@
 <template>
-    <div class="row" v-if="showFilter == true">
+    <div class="row">
         <div class="filter-bar pull-right">
             <form class="form-inline">
                 <div class="form-group">
@@ -9,7 +9,7 @@
                 </div>
             </form>
         </div>
-        <div class="filter-bar pull-right" v-if="showActions == true">
+        <div class="filter-bar pull-right" v-show="showActions">
             <el-popover
                     ref="format"
                     placement="bottom"
@@ -29,10 +29,7 @@
     export default {
         props:{
             id:{
-                required:true
-            },
-            showFilter:{
-                type:Boolean
+              required:true
             },
             showActions:{
                 type:Boolean
