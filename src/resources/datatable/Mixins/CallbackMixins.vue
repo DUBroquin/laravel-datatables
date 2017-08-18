@@ -5,6 +5,9 @@
                 allCaps(content){
                     return content.toUpperCase();
                 },
+                bolder(content){
+                    return '<b>'+content+'</b>'
+                }
                 mailTo(content){
                     return '<a class="mailTo" href="mailto:'+content+'">'+content+'</a>'
                 },
