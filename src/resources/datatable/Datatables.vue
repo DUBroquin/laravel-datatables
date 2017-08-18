@@ -51,6 +51,14 @@
                 required: true,
             },
 
+            // Query
+            moreParams:{
+                type:Object,
+                default:function(){
+                    return {}
+                }
+            },
+
             // Export
             exportReject:{
                 type: Array,
