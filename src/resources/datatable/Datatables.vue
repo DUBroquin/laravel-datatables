@@ -150,10 +150,11 @@
                             paginationPath: "",
                             perPage: 10,
                             appendParams: this.moreParams,
+                            detailRowComponent:"detail"
                         },
                         on: {
                             'vuetable:pagination-data': this.onPaginationData,
-
+                            'vuetable:cell-clicked': this.onCellClicked
                         },
                         scopedSlots: this.$vnode.data.scopedSlots
                     }
@@ -194,15 +195,6 @@
             },
             onChangePage (page) {
                 this.$refs[this.id].changePage(page)
-            },
-
-            /*------------------------------------------------
-             *   Detail
-             */
-            onCellClicked (data, field, event) {
-                this.clickedRowData = data
-                this.clickedRowIndex = data.id
-                this.$refs[this.id].toggleDetailRow(data.id)
             },
 
             /*------------------------------------------------

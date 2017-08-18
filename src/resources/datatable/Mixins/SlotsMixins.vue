@@ -5,6 +5,11 @@
                 onAction (id, action, data, index) {
                     this.openModal(id, action, data, index)
                 },
+                onDetail(data, id){
+                    this.clickedRowData = data
+                    this.clickedRowIndex = data.id
+                    this.$refs[id].$refs[id].toggleDetailRow(data.id)
+                }
             }
         })
     }
