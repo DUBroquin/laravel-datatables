@@ -60,12 +60,6 @@
                     return {}
                 }
             },
-            httpOptions:{
-                type:Object,
-                default:function(){
-                    return {}
-                }
-            },
 
             // Export
             exportReject:{
@@ -156,7 +150,6 @@
                             paginationPath: "",
                             perPage: 10,
                             appendParams: this.moreParams,
-                            httpOptions: this.httpOptions,
                         },
                         on: {
                             'vuetable:pagination-data': this.onPaginationData,
@@ -201,6 +194,15 @@
             },
             onChangePage (page) {
                 this.$refs[this.id].changePage(page)
+            },
+
+            /*------------------------------------------------
+             *   Detail
+             */
+            onCellClicked (data, field, event) {
+                this.clickedRowData = data
+                this.clickedRowIndex = data.id
+                this.$refs[this.id].toggleDetailRow(data.id)
             },
 
             /*------------------------------------------------
