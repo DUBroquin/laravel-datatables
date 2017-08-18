@@ -7,15 +7,17 @@
     import JsPDF from 'jspdf'
     import autoTable from 'jspdf-autotable'
 
-
     // Import custom components
     import FilterBar from './FilterBar.vue'
-    import VuetablePagination from 'vuetable-2/src/components/VuetablePagination'
-    import VuetablePaginationInfo from 'vuetable-2/src/components/VuetablePaginationInfo'
+    import Pagination from './Pagination.vue'
+    import Detail from './Detail.vue'
 
     // Import mixins
     import SlotsMixins from './Mixins/SlotsMixins.vue';
     import CallbacksMixins from './Mixins/CallbackMixins.vue';
+
+    // Tell Vue what it must use
+    Vue.component('detail', Detail)
 
     export default{
         mixins:[CallbacksMixins.callbacks],
@@ -36,8 +38,8 @@
         components: {
             Vuetable,
             FilterBar,
-            VuetablePagination,
-            VuetablePaginationInfo
+            Pagination,
+            Detail
         },
         props: {
             // Mandatories
@@ -53,6 +55,12 @@
 
             // Query
             moreParams:{
+                type:Object,
+                default:function(){
+                    return {}
+                }
+            },
+            httpOptions:{
                 type:Object,
                 default:function(){
                     return {}
@@ -114,7 +122,6 @@
                         },
                     },
                 },
-                moreParams: {},
                 filterText: ''
             }
         },
@@ -139,7 +146,7 @@
                 return h(
                     'vuetable',
                     {
-                        ref: 'vuetable',
+                        ref: this.id,
                         props: {
                             id: this.id,
                             name: this.id,
@@ -149,9 +156,11 @@
                             paginationPath: "",
                             perPage: 10,
                             appendParams: this.moreParams,
+                            httpOptions: this.httpOptions,
                         },
                         on: {
                             'vuetable:pagination-data': this.onPaginationData,
+
                         },
                         scopedSlots: this.$vnode.data.scopedSlots
                     }
@@ -159,24 +168,18 @@
             },
             renderPagination(h) {
                 return h(
-                    'div',
-                    { class: {'row':true, 'vuetable-pagination': false, 'ui': false, 'basic': false, 'segment': false, 'grid': false} },
-                    [
-                        h('vuetable-pagination-info', {
-                            ref: 'paginationInfo',
-                            class: {'col-md-6':true, 'vuetable-pagination': false},
-                        }),
-                        h('vuetable-pagination', {
-                            ref: 'pagination',
-                            class: {'col-md-6':true, 'is-widthless':true, 'grid': false},
-                            props:{
-                                css:this.vuetable.pagination
-                            },
-                            on: {
-                                'vuetable-pagination:change-page': this.onChangePage
-                            }
-                        })
-                    ]
+                    'pagination',
+                    {
+                        ref: 'pagination',
+                        props: {
+                            showPagination: this.showPagination,
+                            css: this.vuetable.pagination,
+                        },
+                        on: {
+                            //'vuetable-pagination:change-page': this.$refs.pagination.onChangePage
+                        },
+                        scopedSlots: this.$vnode.data.scopedSlots
+                    }
                 )
             },
 
@@ -194,11 +197,12 @@
              *   Pagination
              */
             onPaginationData (paginationData) {
-                this.$refs.pagination.setPaginationData(paginationData)
-                this.$refs.paginationInfo.setPaginationData(paginationData)
+                console.log('efn')
+                this.$refs.pagination.setDatas(paginationData)
             },
             onChangePage (page) {
-                this.$refs.vuetable.changePage(page)
+                console.log('euzbzf')
+                this.$refs[this.id].changePage(page)
             },
 
             /*------------------------------------------------
@@ -251,6 +255,7 @@
                     preparePDF.save(table.file)
                 }
             },
+
             exportHelper(format){
                 // Stock context
                 let self = this;
@@ -298,7 +303,6 @@
             reload(id){
                 Vue.nextTick(() => this.$refs[id].refresh())
             },
-
-        }
+        },
     }
 </script>

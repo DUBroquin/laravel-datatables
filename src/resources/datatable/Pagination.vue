@@ -6,8 +6,8 @@
         <div class="col-md-6">
             <vuetable-pagination
                     ref="pagination"
-                    :css="css">
-                    <!--@vuetable-pagination:change-page="onChangePage">-->
+                    :css="css"
+                    @vuetable-pagination:change-page="changePage">
             </vuetable-pagination>
         </div>
     </div>
@@ -33,6 +33,9 @@
             }
         },
         methods:{
+            changePage(page){
+                this.$parent.onChangePage(page)
+            },
             setDatas(paginationData){
                 this.$refs.pagination.setPaginationData(paginationData)
                 this.$refs.paginationInfo.setPaginationData(paginationData)
