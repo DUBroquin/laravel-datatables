@@ -48,6 +48,9 @@
                 required: true,
             },
 
+            // Options
+            perPage:{type:Number, default:function(){return 10}},
+
             // Query
             moreParams:{
                 type:Object,
@@ -143,7 +146,7 @@
                             fields: this.columns,
                             css: this.vuetable,
                             paginationPath: "",
-                            perPage: 10,
+                            perPage: this.perPage,
                             appendParams: this.moreParams,
                             detailRowComponent:"detail"
                         },
@@ -163,9 +166,7 @@
                             showPagination: this.showPagination,
                             css: this.vuetable.pagination,
                         },
-                        on: {
-                            //'vuetable-pagination:change-page': this.$refs.pagination.onChangePage
-                        },
+                        on: {},
                         scopedSlots: this.$vnode.data.scopedSlots
                     }
                 )
