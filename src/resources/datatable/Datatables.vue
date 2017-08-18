@@ -10,14 +10,10 @@
     // Import custom components
     import FilterBar from './FilterBar.vue'
     import Pagination from './Pagination.vue'
-    import Detail from './Detail.vue'
 
     // Import mixins
     import SlotsMixins from './Mixins/SlotsMixins.vue';
     import CallbacksMixins from './Mixins/CallbackMixins.vue';
-
-    // Tell Vue what it must use
-    Vue.component('detail', Detail)
 
     export default{
         mixins:[CallbacksMixins.callbacks],
@@ -39,7 +35,6 @@
             Vuetable,
             FilterBar,
             Pagination,
-            Detail
         },
         props: {
             // Mandatories
@@ -154,7 +149,6 @@
                         },
                         on: {
                             'vuetable:pagination-data': this.onPaginationData,
-                            'vuetable:cell-clicked': this.onCellClicked
                         },
                         scopedSlots: this.$vnode.data.scopedSlots
                     }
