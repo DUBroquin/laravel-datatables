@@ -197,11 +197,9 @@
              *   Pagination
              */
             onPaginationData (paginationData) {
-                console.log('efn')
                 this.$refs.pagination.setDatas(paginationData)
             },
             onChangePage (page) {
-                console.log('euzbzf')
                 this.$refs[this.id].changePage(page)
             },
 
