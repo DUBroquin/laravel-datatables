@@ -114,7 +114,8 @@
                         },
                     },
                 },
-                filterText: ''
+                filterText: '',
+                params:this.moreParams
             }
         },
         methods: {
@@ -147,7 +148,7 @@
                             css: this.vuetable,
                             paginationPath: "",
                             perPage: this.perPage,
-                            appendParams: this.moreParams,
+                            appendParams: this.params,
                             detailRowComponent:"detail"
                         },
                         on: {
@@ -172,13 +173,37 @@
                 )
             },
 
+            makeParams(){
+                let params = {}
+                // Add params from prop
+                _.each(this.moreParams, (param, key) => {
+                    /*this.params[key] = param*/
+                    params[key] = param
+                })
+
+                return params
+            },
+
             /*------------------------------------------------
              *   Filter
              */
             onFilterSet (filterText) {
-                this.moreParams = {
-                    'filter': filterText
+                // Reset params
+                this.params = {}
+
+                // Add params from prop
+                _.each(this.moreParams, (param, key) => {
+                    this.params[key] = param
+                })
+
+                //this.makeParams()
+
+                // Add filter
+                if(filterText !== null){
+                    this.params.filter = filterText
                 }
+
+                // Update
                 Vue.nextTick(() => this.$refs[this.id].refresh())
             },
 
@@ -290,6 +315,6 @@
             reload(id){
                 Vue.nextTick(() => this.$refs[id].refresh())
             },
-        },
+        }
     }
 </script>
