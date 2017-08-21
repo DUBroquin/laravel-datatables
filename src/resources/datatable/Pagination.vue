@@ -14,6 +14,7 @@
 </template>
 
 <script>
+    // Import components
     import VuetablePagination from 'vuetable-2/src/components/VuetablePagination'
     import VuetablePaginationInfo from 'vuetable-2/src/components/VuetablePaginationInfo'
 
