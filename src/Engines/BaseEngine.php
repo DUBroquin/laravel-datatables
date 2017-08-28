@@ -585,6 +585,14 @@ abstract class BaseEngine implements DataTableEngineContract
      */
     protected function render($object = false)
     {
+        $data = null;
+
+        if(is_array($this->getProcessedData())){
+            $data = collect($this->getProcessedData());
+        }else{
+            $data = $this->getProcessedData(true);
+        }
+
         if($this->request->has('sort')){
             $sorts = explode(',', $this->request->sort);
 
@@ -592,14 +600,13 @@ abstract class BaseEngine implements DataTableEngineContract
                 list($sortCol, $sortDir) = explode('|', $sort);
 
                 if($sortDir == 'asc'){
-                    $sorted = $this->getProcessedData(true)->sortBy($sortCol);
+                    $sorted = $data->sortBy($sortCol);
                 }else{
-                    $sorted = $this->getProcessedData(true)->sortByDesc($sortCol);
+                    $sorted = $data->sortByDesc($sortCol);
                 }
-
             }
         }else{
-            $sorted = $this->getProcessedData(true);
+            $sorted = $data;
         }
 
         $final = collect();
