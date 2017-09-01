@@ -1,9 +1,9 @@
 <?php
 
-namespace dubroquin\vuetable;\Processors;
+namespace dubroquin\vuetable\Processors;
 
 use Illuminate\Support\Arr;
-use dubroquin\vuetable;\Helper;
+use dubroquin\vuetable\Helper;
 
 /**
  * Class RowProcessor.

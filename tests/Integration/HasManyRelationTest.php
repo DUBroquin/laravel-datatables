@@ -1,11 +1,11 @@
 <?php
 
-namespace dubroquin\vuetable;\Tests\Integration;
+namespace dubroquin\vuetable\Tests\Integration;
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use dubroquin\vuetable;\vuetable;
-use dubroquin\vuetable;\Tests\Models\User;
-use dubroquin\vuetable;\Tests\TestCase;
+use dubroquin\vuetable\vuetable;
+use dubroquin\vuetable\Tests\Models\User;
+use dubroquin\vuetable\Tests\TestCase;
 
 class HasManyRelationTest extends TestCase
 {

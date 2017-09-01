@@ -1,6 +1,6 @@
 <?php
 
-namespace dubroquin\vuetable;\Tests\Models;
+namespace dubroquin\vuetable\Tests\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

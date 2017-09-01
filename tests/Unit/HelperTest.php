@@ -1,11 +1,11 @@
 <?php
 
-namespace dubroquin\vuetable;\Tests\Unit;
+namespace dubroquin\vuetable\Tests\Unit;
 
 use Carbon\Carbon;
 use stdClass;
-use dubroquin\vuetable;\Helper;
-use dubroquin\vuetable;\Tests\TestCase;
+use dubroquin\vuetable\Helper;
+use dubroquin\vuetable\Tests\TestCase;
 
 class HelperTest extends TestCase
 {
