@@ -1,6 +1,6 @@
 <?php
 
-namespace dubroquin\vuetable;
+namespace dubroquin\datatables\;
 
 use Exception;
 use Illuminate\Http\Request as IlluminateRequest;
@@ -8,7 +8,7 @@ use Illuminate\Http\Request as IlluminateRequest;
 /**
  * Class Request.
  *
- * @package dubroquin\vuetable;
+ * @package dubroquin\datatables\;
  * @method input($key, $default = null)
  * @method has($key)
  * @method query($key, $default = null)

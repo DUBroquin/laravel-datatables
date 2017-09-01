@@ -1,14 +1,14 @@
 <?php
 
-namespace dubroquin\vuetable\Tests\Integration;
+namespace dubroquin\datatables\Tests\Integration;
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Http\JsonResponse;
-use dubroquin\vuetable\vuetable;
-use dubroquin\vuetable\Engines\CollectionEngine;
-use dubroquin\vuetable\Facades\vuetable as vuetableFacade;
-use dubroquin\vuetable\Tests\Models\User;
-use dubroquin\vuetable\Tests\TestCase;
+use dubroquin\datatables\vuetable;
+use dubroquin\datatables\Engines\CollectionEngine;
+use dubroquin\datatables\Facades\vuetable as vuetableFacade;
+use dubroquin\datatables\Tests\Models\User;
+use dubroquin\datatables\Tests\TestCase;
 
 class CollectionEngineTest extends TestCase
 {

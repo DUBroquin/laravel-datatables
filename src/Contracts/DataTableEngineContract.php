@@ -1,11 +1,11 @@
 <?php
 
-namespace dubroquin\vuetable\Contracts;
+namespace dubroquin\datatables\Contracts;
 
 /**
  * Interface DataTableEngineContract
  *
- * @package dubroquin\vuetable\Contracts
+ * @package dubroquin\datatables\Contracts
  * @author  Arjay Angeles <aqangeles@gmail.com>
  */
 interface DataTableEngineContract

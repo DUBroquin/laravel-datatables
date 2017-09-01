@@ -1,13 +1,13 @@
 <?php
 
-namespace dubroquin\vuetable\Transformers;
+namespace dubroquin\datatables\Transformers;
 
 use Illuminate\Support\Collection;
 
 /**
  * Class DataTransformer.
  *
- * @package dubroquin\vuetable\Transformers
+ * @package dubroquin\datatables\Transformers
  * @author  Arjay Angeles <aqangeles@gmail.com>
  */
 class DataTransformer

@@ -1,20 +1,20 @@
 <?php
 
-namespace dubroquin\vuetable\Engines;
+namespace dubroquin\datatables\Engines;
 
 use Illuminate\Contracts\Logging\Log;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Str;
 use League\Fractal\Resource\Collection;
-use dubroquin\vuetable\Contracts\DataTableEngineContract;
-use dubroquin\vuetable\Exception;
+use dubroquin\datatables\Contracts\DataTableEngineContract;
+use dubroquin\datatables\Exception;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 
 /**
  * Class BaseEngine.
  *
- * @package dubroquin\vuetable\Engines
+ * @package dubroquin\datatables\Engines
  * @author  Arjay Angeles <aqangeles@gmail.com>
  */
 abstract class BaseEngine implements DataTableEngineContract
@@ -22,7 +22,7 @@ abstract class BaseEngine implements DataTableEngineContract
     /**
      * vuetable Request object.
      *
-     * @var \dubroquin\vuetable\Request
+     * @var \dubroquin\datatables\Request
      */
     public $request;
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace dubroquin\vuetable\Tests\Unit;
+namespace dubroquin\datatables\Tests\Unit;
 
 use Exception;
-use dubroquin\vuetable\Request;
-use dubroquin\vuetable\Tests\TestCase;
+use dubroquin\datatables\Request;
+use dubroquin\datatables\Tests\TestCase;
 
 class RequestTest extends TestCase
 {
@@ -142,7 +142,7 @@ class RequestTest extends TestCase
     }
 
     /**
-     * @return \dubroquin\vuetable\Request
+     * @return \dubroquin\datatables\Request
      */
     protected function getRequest()
     {

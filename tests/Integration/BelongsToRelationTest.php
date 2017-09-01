@@ -1,11 +1,11 @@
 <?php
 
-namespace dubroquin\vuetable\Tests\Integration;
+namespace dubroquin\datatables\Tests\Integration;
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use dubroquin\vuetable\vuetable;
-use dubroquin\vuetable\Tests\Models\Post;
-use dubroquin\vuetable\Tests\TestCase;
+use dubroquin\datatables\vuetable;
+use dubroquin\datatables\Tests\Models\Post;
+use dubroquin\datatables\Tests\TestCase;
 
 class BelongsToRelationTest extends TestCase
 {

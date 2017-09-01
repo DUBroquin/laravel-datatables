@@ -1,10 +1,10 @@
 <?php
 
-namespace dubroquin\vuetable\Tests;
+namespace dubroquin\datatables\Tests;
 
 use Illuminate\Database\Schema\Blueprint;
-use dubroquin\vuetable\Tests\Models\Role;
-use dubroquin\vuetable\Tests\Models\User;
+use dubroquin\datatables\Tests\Models\Role;
+use dubroquin\datatables\Tests\Models\User;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
@@ -100,14 +100,14 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     protected function getPackageProviders($app)
     {
         return [
-            \dubroquin\vuetable\vuetableServiceProvider::class,
+            \dubroquin\datatables\vuetableServiceProvider::class,
         ];
     }
 
     protected function getPackageAliases($app)
     {
         return [
-            'vuetable' => \dubroquin\vuetable\Facades\vuetable::class,
+            'vuetable' => \dubroquin\datatables\Facades\vuetable::class,
         ];
     }
 }

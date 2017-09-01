@@ -1,13 +1,13 @@
 <?php
 
-namespace dubroquin\vuetable;
+namespace dubroquin\datatables\;
 
 use Illuminate\Support\Collection;
 
 /**
  * Class vuetable.
  *
- * @package dubroquin\vuetable;
+ * @package dubroquin\datatables\;
  * @author  Arjay Angeles <aqangeles@gmail.com>
  */
 class Vuetable
@@ -15,21 +15,21 @@ class Vuetable
     /**
      * vuetable request object.
      *
-     * @var \dubroquin\vuetable\Request
+     * @var \dubroquin\datatables\Request
      */
     protected $request;
 
     /**
      * HTML builder instance.
      *
-     * @var \dubroquin\vuetable\Html\Builder
+     * @var \dubroquin\datatables\Html\Builder
      */
     protected $html;
 
     /**
      * vuetable constructor.
      *
-     * @param \dubroquin\vuetable\Request $request
+     * @param \dubroquin\datatables\Request $request
      */
     public function __construct(Request $request)
     {
@@ -68,7 +68,7 @@ class Vuetable
     /**
      * Get request object.
      *
-     * @return \dubroquin\vuetable\Request
+     * @return \dubroquin\datatables\Request
      */
     public function getRequest()
     {
@@ -79,7 +79,7 @@ class Vuetable
      * vuetable using Query Builder.
      *
      * @param \Illuminate\Database\Query\Builder|mixed $builder
-     * @return \dubroquin\vuetable\Engines\QueryBuilderEngine
+     * @return \dubroquin\datatables\Engines\QueryBuilderEngine
      */
     public function queryBuilder($builder)
     {
@@ -90,7 +90,7 @@ class Vuetable
      * vuetable using Eloquent Builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder|mixed $builder
-     * @return \dubroquin\vuetable\Engines\EloquentEngine
+     * @return \dubroquin\datatables\Engines\EloquentEngine
      */
     public function eloquent($builder)
     {
@@ -101,7 +101,7 @@ class Vuetable
      * vuetable using Collection.
      *
      * @param \Illuminate\Support\Collection|mixed $collection
-     * @return \dubroquin\vuetable\Engines\CollectionEngine
+     * @return \dubroquin\datatables\Engines\CollectionEngine
      */
     public function collection($collection)
     {
@@ -115,12 +115,12 @@ class Vuetable
     /**
      * Get html builder instance.
      *
-     * @return \dubroquin\vuetable\Html\Builder
+     * @return \dubroquin\datatables\Html\Builder
      * @throws \Exception
      */
     public function getHtmlBuilder()
     {
-        if (! class_exists('\dubroquin\vuetable\Html\Builder')) {
+        if (! class_exists('\dubroquin\datatables\Html\Builder')) {
             throw new \Exception('Please install yajra/laravel-vuetable-html to be able to use this function.');
         }
 

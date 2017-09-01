@@ -1,6 +1,6 @@
 <?php
 
-namespace dubroquin\vuetable;
+namespace dubroquin\datatables;
 
 use Illuminate\Support\ServiceProvider;
 use League\Fractal\Manager;
@@ -9,7 +9,7 @@ use League\Fractal\Serializer\DataArraySerializer;
 /**
  * Class vuetableServiceProvider.
  *
- * @package dubroquin\vuetable;
+ * @package dubroquin\datatables\;
  * @author  Arjay Angeles <aqangeles@gmail.com>
  */
 class VuetableServiceProvider extends ServiceProvider
@@ -92,7 +92,7 @@ class VuetableServiceProvider extends ServiceProvider
     {
         if (class_exists('Illuminate\Foundation\AliasLoader')) {
             $loader = \Illuminate\Foundation\AliasLoader::getInstance();
-            $loader->alias('Vuetable', \dubroquin\vuetable\Facades\Vuetable::class);
+            $loader->alias('Vuetable', \dubroquin\datatables\Facades\Vuetable::class);
         }
     }
 
