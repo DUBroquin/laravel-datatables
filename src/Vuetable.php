@@ -1,6 +1,6 @@
 <?php
 
-namespace dubroquin\datatables;
+namespace dubroquin\vuetable;
 
 use Illuminate\Support\Collection;
 
@@ -10,7 +10,7 @@ use Illuminate\Support\Collection;
  * @package dubroquin\datatables
  * @author  Arjay Angeles <aqangeles@gmail.com>
  */
-class Datatables
+class Vuetable
 {
     /**
      * Datatables request object.

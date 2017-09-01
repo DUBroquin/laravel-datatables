@@ -2,7 +2,7 @@
 
 return [
     /**
-     * DataTables search options.
+     * vuetable search options.
      */
     'search'         => [
         /**
@@ -25,12 +25,12 @@ return [
     ],
 
     /**
-     * DataTables internal index id response column name.
+     * vuetable internal index id response column name.
      */
     'index_column'   => 'DT_Row_Index',
 
     /**
-     * DataTables fractal configurations.
+     * vuetable fractal configurations.
      */
     'fractal'        => [
         /**
@@ -45,17 +45,17 @@ return [
     ],
 
     /**
-     * Datatables list of available engines.
-     * This is where you can register your custom datatables engine.
+     * vuetable list of available engines.
+     * This is where you can register your custom vuetable engine.
      */
     'engines'        => [
-        'eloquent'   => dubroquin\datatables\Engines\EloquentEngine::class,
-        'query'      => dubroquin\datatables\Engines\QueryBuilderEngine::class,
-        'collection' => dubroquin\datatables\Engines\CollectionEngine::class,
+        'eloquent'   => dubroquin\vuetable;\Engines\EloquentEngine::class,
+        'query'      => dubroquin\vuetable;\Engines\QueryBuilderEngine::class,
+        'collection' => dubroquin\vuetable;\Engines\CollectionEngine::class,
     ],
 
     /**
-     * Datatables accepted builder to engine mapping.
+     * vuetable accepted builder to engine mapping.
      */
     'builders'       => [
         Illuminate\Database\Eloquent\Relations\Relation::class => 'eloquent',
@@ -74,10 +74,10 @@ return [
      * User friendly message to be displayed on user if error occurs.
      * Possible values:
      * null             - The exception message will be used on error response.
-     * 'throw'          - Throws a \dubroquin\datatables\Exception. You can then use your custom error handler if needed.
+     * 'throw'          - Throws a \dubroquin\vuetable;\Exception. You can then use your custom error handler if needed.
      * 'custom message' - Any friendly message to be displayed to the user. You can also use translation key.
      */
-    'error'          => env('DATATABLES_ERROR', null),
+    'error'          => env('vuetable_ERROR', null),
 
     /**
      * JsonResponse header and options config.
