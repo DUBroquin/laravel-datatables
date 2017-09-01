@@ -1,11 +1,11 @@
 <?php
 
-namespace dubroquin\datatables\Tests\Integration;
+namespace dubroquin\vuetable;\Tests\Integration;
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use dubroquin\datatables\Datatables;
-use dubroquin\datatables\Tests\Models\User;
-use dubroquin\datatables\Tests\TestCase;
+use dubroquin\vuetable;\vuetable;
+use dubroquin\vuetable;\Tests\Models\User;
+use dubroquin\vuetable;\Tests\TestCase;
 
 class BelongsToManyRelationTest extends TestCase
 {
@@ -86,8 +86,8 @@ class BelongsToManyRelationTest extends TestCase
     {
         parent::setUp();
 
-        $this->app['router']->get('/relations/belongsToMany', function (Datatables $datatables) {
-            return $datatables->eloquent(User::with('roles')->select('users.*'))->make('true');
+        $this->app['router']->get('/relations/belongsToMany', function (vuetable $vuetable) {
+            return $vuetable->eloquent(User::with('roles')->select('users.*'))->make('true');
         });
     }
 }

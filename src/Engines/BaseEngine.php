@@ -1,28 +1,28 @@
 <?php
 
-namespace dubroquin\datatables\Engines;
+namespace dubroquin\vuetable;\Engines;
 
 use Illuminate\Contracts\Logging\Log;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Str;
 use League\Fractal\Resource\Collection;
-use dubroquin\datatables\Contracts\DataTableEngineContract;
-use dubroquin\datatables\Exception;
+use dubroquin\vuetable;\Contracts\DataTableEngineContract;
+use dubroquin\vuetable;\Exception;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 
 /**
  * Class BaseEngine.
  *
- * @package dubroquin\datatables\Engines
+ * @package dubroquin\vuetable;\Engines
  * @author  Arjay Angeles <aqangeles@gmail.com>
  */
 abstract class BaseEngine implements DataTableEngineContract
 {
     /**
-     * Datatables Request object.
+     * vuetable Request object.
      *
-     * @var \dubroquin\datatables\Request
+     * @var \dubroquin\vuetable;\Request
      */
     public $request;
 
@@ -516,7 +516,7 @@ abstract class BaseEngine implements DataTableEngineContract
 
             return $this->render($mDataSupport);
         } catch (\Exception $exception) {
-            $error = config('datatables.error');
+            $error = config('vuetable.error');
             if ($error === 'throw') {
                 throw new Exception($exception->getMessage(), $code = 0, $exception);
             }
@@ -729,7 +729,7 @@ abstract class BaseEngine implements DataTableEngineContract
      */
     public function isCaseInsensitive()
     {
-        return !!config('datatables.search.case_insensitive', false);
+        return !!config('vuetable.search.case_insensitive', false);
     }
 
     /**
@@ -799,7 +799,7 @@ abstract class BaseEngine implements DataTableEngineContract
      */
     public function smart($bool = true)
     {
-        config(['datatables.search.smart' => $bool]);
+        config(['vuetable.search.smart' => $bool]);
 
         return $this;
     }
@@ -840,7 +840,7 @@ abstract class BaseEngine implements DataTableEngineContract
     }
 
     /**
-     * Set datatables to do ordering with NULLS LAST option.
+     * Set vuetable to do ordering with NULLS LAST option.
      *
      * @return $this
      */
@@ -874,13 +874,13 @@ abstract class BaseEngine implements DataTableEngineContract
     }
 
     /**
-     * Check if DataTables uses smart search.
+     * Check if vuetable uses smart search.
      *
      * @return bool
      */
     public function isSmartSearch()
     {
-        return !!config('datatables.search.smart', true);
+        return !!config('vuetable.search.smart', true);
     }
 
     /**
@@ -890,7 +890,7 @@ abstract class BaseEngine implements DataTableEngineContract
      */
     public function isWildcard()
     {
-        return !!config('datatables.search.use_wildcards', false);
+        return !!config('vuetable.search.use_wildcards', false);
     }
 
     /**
@@ -963,7 +963,7 @@ abstract class BaseEngine implements DataTableEngineContract
     {
         $column = $this->request->columnName($index);
 
-        // DataTables is using make(false)
+        // vuetable is using make(false)
         if (is_numeric($column)) {
             $column = $this->getColumnNameByIndex($index);
         }

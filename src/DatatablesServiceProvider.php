@@ -1,18 +1,18 @@
 <?php
 
-namespace dubroquin\datatables;
+namespace dubroquin\vuetable;
 
 use Illuminate\Support\ServiceProvider;
 use League\Fractal\Manager;
 use League\Fractal\Serializer\DataArraySerializer;
 
 /**
- * Class DatatablesServiceProvider.
+ * Class vuetableServiceProvider.
  *
- * @package dubroquin\datatables
+ * @package dubroquin\vuetable;
  * @author  Arjay Angeles <aqangeles@gmail.com>
  */
-class DatatablesServiceProvider extends ServiceProvider
+class VuetableServiceProvider extends ServiceProvider
 {
     /**
      * Indicates if loading of the provider is deferred.
@@ -28,11 +28,11 @@ class DatatablesServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->mergeConfigFrom(__DIR__ . '/config/datatables.php', 'datatables');
+        $this->mergeConfigFrom(__DIR__ . '/config/vuetable.php', 'vuetable');
 
         $this->publishes([
-            __DIR__ . '/config/datatables.php' => config_path('datatables.php'),
-        ], 'datatables');
+            __DIR__ . '/config/vuetable.php' => config_path('vuetable.php'),
+        ], 'vuetable');
 
         // Publish Vue.js files
         $this->publishes([
@@ -51,25 +51,25 @@ class DatatablesServiceProvider extends ServiceProvider
             require_once 'fallback.php';
         }
 
-        $this->app->singleton('datatables.fractal', function () {
+        $this->app->singleton('vuetable.fractal', function () {
             $fractal = new Manager;
             $config  = $this->app['config'];
             $request = $this->app['request'];
 
-            $includesKey = $config->get('datatables.fractal.includes', 'include');
+            $includesKey = $config->get('vuetable.fractal.includes', 'include');
             if ($request->get($includesKey)) {
                 $fractal->parseIncludes($request->get($includesKey));
             }
 
-            $serializer = $config->get('datatables.fractal.serializer', DataArraySerializer::class);
+            $serializer = $config->get('vuetable.fractal.serializer', DataArraySerializer::class);
             $fractal->setSerializer(new $serializer);
 
             return $fractal;
         });
 
-        $this->app->alias('datatables', Datatables::class);
-        $this->app->singleton('datatables', function () {
-            return new Datatables(new Request(app('request')));
+        $this->app->alias('vuetable', Vuetable::class);
+        $this->app->singleton('vuetable', function () {
+            return new vuetable(new Request(app('request')));
         });
 
         $this->registerAliases();
@@ -92,7 +92,7 @@ class DatatablesServiceProvider extends ServiceProvider
     {
         if (class_exists('Illuminate\Foundation\AliasLoader')) {
             $loader = \Illuminate\Foundation\AliasLoader::getInstance();
-            $loader->alias('Datatables', \dubroquin\datatables\Facades\Datatables::class);
+            $loader->alias('Vuetable', \dubroquin\vuetable;\Facades\Vuetable::class);
         }
     }
 
@@ -103,6 +103,6 @@ class DatatablesServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return ['datatables', 'datatables.fractal'];
+        return ['vuetable', 'vuetable.fractal'];
     }
 }

@@ -49,9 +49,9 @@ return [
      * This is where you can register your custom vuetable engine.
      */
     'engines'        => [
-        'eloquent'   => dubroquin\vuetable;\Engines\EloquentEngine::class,
-        'query'      => dubroquin\vuetable;\Engines\QueryBuilderEngine::class,
-        'collection' => dubroquin\vuetable;\Engines\CollectionEngine::class,
+        'eloquent'   => dubroquin\vuetable\Engines\EloquentEngine::class,
+        'query'      => dubroquin\vuetable\Engines\QueryBuilderEngine::class,
+        'collection' => dubroquin\vuetable\Engines\CollectionEngine::class,
     ],
 
     /**

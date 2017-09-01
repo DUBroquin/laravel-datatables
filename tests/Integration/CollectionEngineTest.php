@@ -1,14 +1,14 @@
 <?php
 
-namespace dubroquin\datatables\Tests\Integration;
+namespace dubroquin\vuetable;\Tests\Integration;
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Http\JsonResponse;
-use dubroquin\datatables\Datatables;
-use dubroquin\datatables\Engines\CollectionEngine;
-use dubroquin\datatables\Facades\Datatables as DatatablesFacade;
-use dubroquin\datatables\Tests\Models\User;
-use dubroquin\datatables\Tests\TestCase;
+use dubroquin\vuetable;\vuetable;
+use dubroquin\vuetable;\Engines\CollectionEngine;
+use dubroquin\vuetable;\Facades\vuetable as vuetableFacade;
+use dubroquin\vuetable;\Tests\Models\User;
+use dubroquin\vuetable;\Tests\TestCase;
 
 class CollectionEngineTest extends TestCase
 {
@@ -46,7 +46,7 @@ class CollectionEngineTest extends TestCase
     /** @test */
     public function it_accepts_a_model_collection_using_of_factory()
     {
-        $dataTable = Datatables::of(User::all());
+        $dataTable = vuetable::of(User::all());
         $response  = $dataTable->make(true);
         $this->assertInstanceOf(CollectionEngine::class, $dataTable);
         $this->assertInstanceOf(JsonResponse::class, $response);
@@ -55,7 +55,7 @@ class CollectionEngineTest extends TestCase
     /** @test */
     public function it_accepts_a_collection_using_of_factory()
     {
-        $dataTable = Datatables::of(collect());
+        $dataTable = vuetable::of(collect());
         $response  = $dataTable->make(true);
         $this->assertInstanceOf(CollectionEngine::class, $dataTable);
         $this->assertInstanceOf(JsonResponse::class, $response);
@@ -64,7 +64,7 @@ class CollectionEngineTest extends TestCase
     /** @test */
     public function it_accepts_a_model_collection_using_facade()
     {
-        $dataTable = DatatablesFacade::of(User::all());
+        $dataTable = vuetableFacade::of(User::all());
         $response  = $dataTable->make(true);
         $this->assertInstanceOf(CollectionEngine::class, $dataTable);
         $this->assertInstanceOf(JsonResponse::class, $response);
@@ -73,7 +73,7 @@ class CollectionEngineTest extends TestCase
     /** @test */
     public function it_accepts_a_collection_using_facade()
     {
-        $dataTable = DatatablesFacade::of(collect());
+        $dataTable = vuetableFacade::of(collect());
         $response  = $dataTable->make(true);
         $this->assertInstanceOf(CollectionEngine::class, $dataTable);
         $this->assertInstanceOf(JsonResponse::class, $response);
@@ -82,7 +82,7 @@ class CollectionEngineTest extends TestCase
     /** @test */
     public function it_accepts_a_model_using_ioc_container()
     {
-        $dataTable = app('datatables')->collection(User::all());
+        $dataTable = app('vuetable')->collection(User::all());
         $response  = $dataTable->make(true);
         $this->assertInstanceOf(CollectionEngine::class, $dataTable);
         $this->assertInstanceOf(JsonResponse::class, $response);
@@ -111,7 +111,7 @@ class CollectionEngineTest extends TestCase
             ['name' => 'zzz'],
         ]);
 
-        $dataTable = app('datatables')->collection($collection);
+        $dataTable = app('vuetable')->collection($collection);
         /** @var JsonResponse $response */
         $response = $dataTable->make('true');
 
@@ -133,7 +133,7 @@ class CollectionEngineTest extends TestCase
     /** @test */
     public function it_accepts_a_model_using_ioc_container_factory()
     {
-        $dataTable = app('datatables')->of(User::all());
+        $dataTable = app('vuetable')->of(User::all());
         $response  = $dataTable->make(true);
         $this->assertInstanceOf(CollectionEngine::class, $dataTable);
         $this->assertInstanceOf(JsonResponse::class, $response);
@@ -146,7 +146,7 @@ class CollectionEngineTest extends TestCase
             ['id' => 1, 'name' => 'foo'],
             ['id' => 2, 'name' => 'bar'],
         ];
-        $dataTable = app('datatables')->of($source);
+        $dataTable = app('vuetable')->of($source);
         $response  = $dataTable->make(true);
         $this->assertInstanceOf(CollectionEngine::class, $dataTable);
         $this->assertInstanceOf(JsonResponse::class, $response);
@@ -156,8 +156,8 @@ class CollectionEngineTest extends TestCase
     {
         parent::setUp();
 
-        $this->app['router']->get('/collection/users', function (Datatables $datatables) {
-            return $datatables->collection(User::all())->make('true');
+        $this->app['router']->get('/collection/users', function (vuetable $vuetable) {
+            return $vuetable->collection(User::all())->make('true');
         });
     }
 }

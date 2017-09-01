@@ -1,6 +1,6 @@
 <?php
 
-namespace dubroquin\datatables\Engines;
+namespace dubroquin\vuetable;\Engines;
 
 use Closure;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -11,20 +11,20 @@ use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Query\Expression;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Str;
-use dubroquin\datatables\Helper;
-use dubroquin\datatables\Request;
+use dubroquin\vuetable;\Helper;
+use dubroquin\vuetable;\Request;
 
 /**
  * Class QueryBuilderEngine.
  *
- * @package dubroquin\datatables\Engines
+ * @package dubroquin\vuetable;\Engines
  * @author  Arjay Angeles <aqangeles@gmail.com>
  */
 class QueryBuilderEngine extends BaseEngine
 {
     /**
      * @param \Illuminate\Database\Query\Builder $builder
-     * @param \dubroquin\datatables\Request $request
+     * @param \dubroquin\vuetable;\Request $request
      */
     public function __construct(Builder $builder, Request $request)
     {
@@ -35,7 +35,7 @@ class QueryBuilderEngine extends BaseEngine
     /**
      * Initialize attributes.
      *
-     * @param  \dubroquin\datatables\Request $request
+     * @param  \dubroquin\vuetable;\Request $request
      * @param  \Illuminate\Database\Query\Builder $builder
      * @param  string $type
      */
@@ -753,7 +753,7 @@ class QueryBuilderEngine extends BaseEngine
      */
     protected function getNullsLastSql($column, $direction)
     {
-        $sql = Config::get('datatables.nulls_last_sql', '%s %s NULLS LAST');
+        $sql = Config::get('vuetable.nulls_last_sql', '%s %s NULLS LAST');
 
         return sprintf($sql, $column, $direction);
     }

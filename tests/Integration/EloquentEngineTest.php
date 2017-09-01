@@ -1,14 +1,14 @@
 <?php
 
-namespace dubroquin\datatables\Tests\Integration;
+namespace dubroquin\vuetable;\Tests\Integration;
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Http\JsonResponse;
-use dubroquin\datatables\Datatables;
-use dubroquin\datatables\Engines\EloquentEngine;
-use dubroquin\datatables\Facades\Datatables as DatatablesFacade;
-use dubroquin\datatables\Tests\Models\User;
-use dubroquin\datatables\Tests\TestCase;
+use dubroquin\vuetable;\vuetable;
+use dubroquin\vuetable;\Engines\EloquentEngine;
+use dubroquin\vuetable;\Facades\vuetable as vuetableFacade;
+use dubroquin\vuetable;\Tests\Models\User;
+use dubroquin\vuetable;\Tests\TestCase;
 
 class EloquentEngineTest extends TestCase
 {
@@ -46,7 +46,7 @@ class EloquentEngineTest extends TestCase
     /** @test */
     public function it_accepts_a_model_using_of_factory()
     {
-        $dataTable = Datatables::of(User::query());
+        $dataTable = vuetable::of(User::query());
         $response  = $dataTable->make(true);
         $this->assertInstanceOf(EloquentEngine::class, $dataTable);
         $this->assertInstanceOf(JsonResponse::class, $response);
@@ -55,7 +55,7 @@ class EloquentEngineTest extends TestCase
     /** @test */
     public function it_accepts_a_model_using_facade()
     {
-        $dataTable = DatatablesFacade::of(User::query());
+        $dataTable = vuetableFacade::of(User::query());
         $response  = $dataTable->make(true);
         $this->assertInstanceOf(EloquentEngine::class, $dataTable);
         $this->assertInstanceOf(JsonResponse::class, $response);
@@ -64,7 +64,7 @@ class EloquentEngineTest extends TestCase
     /** @test */
     public function it_accepts_a_model_using_facade_eloquent_method()
     {
-        $dataTable = DatatablesFacade::eloquent(User::query());
+        $dataTable = vuetableFacade::eloquent(User::query());
         $response  = $dataTable->make(true);
         $this->assertInstanceOf(EloquentEngine::class, $dataTable);
         $this->assertInstanceOf(JsonResponse::class, $response);
@@ -73,7 +73,7 @@ class EloquentEngineTest extends TestCase
     /** @test */
     public function it_accepts_a_model_using_ioc_container()
     {
-        $dataTable = app('datatables')->eloquent(User::query());
+        $dataTable = app('vuetable')->eloquent(User::query());
         $response  = $dataTable->make(true);
         $this->assertInstanceOf(EloquentEngine::class, $dataTable);
         $this->assertInstanceOf(JsonResponse::class, $response);
@@ -82,7 +82,7 @@ class EloquentEngineTest extends TestCase
     /** @test */
     public function it_accepts_a_model_using_ioc_container_factory()
     {
-        $dataTable = app('datatables')->of(User::query());
+        $dataTable = app('vuetable')->of(User::query());
         $response  = $dataTable->make(true);
         $this->assertInstanceOf(EloquentEngine::class, $dataTable);
         $this->assertInstanceOf(JsonResponse::class, $response);
@@ -92,8 +92,8 @@ class EloquentEngineTest extends TestCase
     {
         parent::setUp();
 
-        $this->app['router']->get('/eloquent/users', function (Datatables $datatables) {
-            return $datatables->eloquent(User::query())->make('true');
+        $this->app['router']->get('/eloquent/users', function (vuetable $vuetable) {
+            return $vuetable->eloquent(User::query())->make('true');
         });
     }
 }

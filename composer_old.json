@@ -1,9 +1,9 @@
 {
-  "name": "yajra/laravel-datatables-oracle",
-  "description": "jQuery DataTables API for Laravel 4|5",
+  "name": "yajra/laravel-vuetable-oracle",
+  "description": "jQuery vuetable API for Laravel 4|5",
   "keywords": [
     "laravel",
-    "dataTables",
+    "vuetable",
     "jquery"
   ],
   "license": "MIT",
@@ -27,18 +27,18 @@
     "phpunit/phpunit": "~5.7"
   },
   "suggest": {
-    "yajra/laravel-datatables-buttons": "Plugin for server-side exporting of dataTable.",
-    "yajra/laravel-datatables-html": "Plugin for server-side HTML builder of dataTable.",
+    "yajra/laravel-vuetable-buttons": "Plugin for server-side exporting of dataTable.",
+    "yajra/laravel-vuetable-html": "Plugin for server-side HTML builder of dataTable.",
     "league/fractal": "Transform your api response into something you won't hate."
   },
   "autoload": {
     "psr-4": {
-      "Yajra\\Datatables\\": "src/"
+      "Yajra\\vuetable\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Yajra\\Datatables\\Tests\\": "tests/"
+      "Yajra\\vuetable\\Tests\\": "tests/"
     }
   },
   "extra": {

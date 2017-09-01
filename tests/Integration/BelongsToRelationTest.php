@@ -1,11 +1,11 @@
 <?php
 
-namespace dubroquin\datatables\Tests\Integration;
+namespace dubroquin\vuetable;\Tests\Integration;
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use dubroquin\datatables\Datatables;
-use dubroquin\datatables\Tests\Models\Post;
-use dubroquin\datatables\Tests\TestCase;
+use dubroquin\vuetable;\vuetable;
+use dubroquin\vuetable;\Tests\Models\Post;
+use dubroquin\vuetable;\Tests\TestCase;
 
 class BelongsToRelationTest extends TestCase
 {
@@ -83,8 +83,8 @@ class BelongsToRelationTest extends TestCase
     {
         parent::setUp();
 
-        $this->app['router']->get('/relations/belongsTo', function (Datatables $datatables) {
-            return $datatables->eloquent(Post::with('user')->select('posts.*'))->make('true');
+        $this->app['router']->get('/relations/belongsTo', function (vuetable $vuetable) {
+            return $vuetable->eloquent(Post::with('user')->select('posts.*'))->make('true');
         });
     }
 }

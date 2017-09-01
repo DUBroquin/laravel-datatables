@@ -1,15 +1,15 @@
 <?php
 
-namespace dubroquin\datatables\Tests\Integration;
+namespace dubroquin\vuetable;\Tests\Integration;
 
 use DB;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Http\JsonResponse;
-use dubroquin\datatables\Datatables;
-use dubroquin\datatables\Engines\QueryBuilderEngine;
-use dubroquin\datatables\Facades\Datatables as DatatablesFacade;
-use dubroquin\datatables\Tests\TestCase;
+use dubroquin\vuetable;\vuetable;
+use dubroquin\vuetable;\Engines\QueryBuilderEngine;
+use dubroquin\vuetable;\Facades\vuetable as vuetableFacade;
+use dubroquin\vuetable;\Tests\TestCase;
 
 class QueryBuilderEngineTest extends TestCase
 {
@@ -65,7 +65,7 @@ class QueryBuilderEngineTest extends TestCase
     /** @test */
     public function it_accepts_a_query_builder_using_of_factory()
     {
-        $dataTable = Datatables::of(DB::table('users'));
+        $dataTable = vuetable::of(DB::table('users'));
         $response  = $dataTable->make(true);
         $this->assertInstanceOf(QueryBuilderEngine::class, $dataTable);
         $this->assertInstanceOf(JsonResponse::class, $response);
@@ -74,7 +74,7 @@ class QueryBuilderEngineTest extends TestCase
     /** @test */
     public function it_accepts_a_query_builder_using_facade()
     {
-        $dataTable = DatatablesFacade::of(DB::table('users'));
+        $dataTable = vuetableFacade::of(DB::table('users'));
         $response  = $dataTable->make(true);
         $this->assertInstanceOf(QueryBuilderEngine::class, $dataTable);
         $this->assertInstanceOf(JsonResponse::class, $response);
@@ -83,7 +83,7 @@ class QueryBuilderEngineTest extends TestCase
     /** @test */
     public function it_accepts_a_query_builder_using_facade_queryBuilder_method()
     {
-        $dataTable = DatatablesFacade::queryBuilder(DB::table('users'));
+        $dataTable = vuetableFacade::queryBuilder(DB::table('users'));
         $response  = $dataTable->make(true);
         $this->assertInstanceOf(QueryBuilderEngine::class, $dataTable);
         $this->assertInstanceOf(JsonResponse::class, $response);
@@ -92,7 +92,7 @@ class QueryBuilderEngineTest extends TestCase
     /** @test */
     public function it_accepts_a_query_builder_using_ioc_container()
     {
-        $dataTable = app('datatables')->queryBuilder(DB::table('users'));
+        $dataTable = app('vuetable')->queryBuilder(DB::table('users'));
         $response  = $dataTable->make(true);
         $this->assertInstanceOf(QueryBuilderEngine::class, $dataTable);
         $this->assertInstanceOf(JsonResponse::class, $response);
@@ -101,7 +101,7 @@ class QueryBuilderEngineTest extends TestCase
     /** @test */
     public function it_accepts_a_query_builder_using_ioc_container_factory()
     {
-        $dataTable = app('datatables')->of(DB::table('users'));
+        $dataTable = app('vuetable')->of(DB::table('users'));
         $response  = $dataTable->make(true);
         $this->assertInstanceOf(QueryBuilderEngine::class, $dataTable);
         $this->assertInstanceOf(JsonResponse::class, $response);
@@ -173,23 +173,23 @@ class QueryBuilderEngineTest extends TestCase
     {
         parent::setUp();
 
-        $this->app['router']->get('/queryBuilder/users', function (Datatables $dataTable) {
+        $this->app['router']->get('/queryBuilder/users', function (vuetable $dataTable) {
             return $dataTable->queryBuilder(DB::table('users'))->make('true');
         });
 
-        $this->app['router']->get('/queryBuilder/addColumn', function (Datatables $dataTable) {
+        $this->app['router']->get('/queryBuilder/addColumn', function (vuetable $dataTable) {
             return $dataTable->queryBuilder(DB::table('users'))
                              ->addColumn('foo', 'bar')
                              ->make('true');
         });
 
-        $this->app['router']->get('/queryBuilder/indexColumn', function (Datatables $dataTable) {
+        $this->app['router']->get('/queryBuilder/indexColumn', function (vuetable $dataTable) {
             return $dataTable->queryBuilder(DB::table('users'))
                              ->addIndexColumn()
                              ->make('true');
         });
 
-        $this->app['router']->get('/queryBuilder/filterColumn', function (Datatables $dataTable) {
+        $this->app['router']->get('/queryBuilder/filterColumn', function (vuetable $dataTable) {
             return $dataTable->queryBuilder(DB::table('users'))
                              ->addColumn('foo', 'bar')
                              ->filterColumn('foo', function (Builder $builder, $keyword) {

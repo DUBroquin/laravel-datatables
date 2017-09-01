@@ -1,15 +1,15 @@
 <?php
 
-namespace dubroquin\datatables\Processors;
+namespace dubroquin\vuetable;\Processors;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Config;
-use dubroquin\datatables\Helper;
+use dubroquin\vuetable;\Helper;
 
 /**
  * Class DataProcessor.
  *
- * @package dubroquin\datatables
+ * @package dubroquin\vuetable;
  * @author  Arjay Angeles <aqangeles@gmail.com>
  */
 class DataProcessor
@@ -96,7 +96,7 @@ class DataProcessor
     public function process($object = false)
     {
         $this->output = [];
-        $indexColumn  = Config::get('datatables.index_column', 'DT_Row_Index');
+        $indexColumn  = Config::get('vuetable.index_column', 'DT_Row_Index');
 
         foreach ($this->results as $row) {
             $data  = Helper::convertToArray($row);

@@ -1,16 +1,16 @@
 <?php
 
-namespace dubroquin\datatables\Facades;
+namespace dubroquin\vuetable;\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * Class Datatables.
+ * Class vuetable.
  *
- * @package dubroquin\datatables\Facades
+ * @package dubroquin\vuetable;\Facades
  * @author  Arjay Angeles <aqangeles@gmail.com>
  */
-class Datatables extends Facade
+class vuetable extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -19,6 +19,6 @@ class Datatables extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'datatables';
+        return 'vuetable';
     }
 }

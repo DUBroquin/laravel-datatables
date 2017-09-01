@@ -1,14 +1,14 @@
 <?php
 
-namespace dubroquin\datatables\Processors;
+namespace dubroquin\vuetable;\Processors;
 
 use Illuminate\Support\Arr;
-use dubroquin\datatables\Helper;
+use dubroquin\vuetable;\Helper;
 
 /**
  * Class RowProcessor.
  *
- * @package dubroquin\datatables
+ * @package dubroquin\vuetable;
  * @author  Arjay Angeles <aqangeles@gmail.com>
  */
 class RowProcessor

@@ -1,6 +1,6 @@
 <?php
 
-namespace dubroquin\datatables;
+namespace dubroquin\vuetable;
 
 use DateTime;
 use Illuminate\Contracts\Support\Arrayable;
@@ -11,7 +11,7 @@ use Illuminate\View\Compilers\BladeCompiler;
 /**
  * Class Helper.
  *
- * @package dubroquin\datatables
+ * @package dubroquin\vuetable;
  * @author  Arjay Angeles <aqangeles@gmail.com>
  */
 class Helper
@@ -90,7 +90,7 @@ class Helper
         }
 
         $empty_filesystem_instance = new Filesystem();
-        $blade                     = new BladeCompiler($empty_filesystem_instance, 'datatables');
+        $blade                     = new BladeCompiler($empty_filesystem_instance, 'vuetable');
         $parsed_string             = $blade->compileString($str);
 
         ob_start() && extract($data, EXTR_SKIP);

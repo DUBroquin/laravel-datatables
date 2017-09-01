@@ -1,6 +1,6 @@
 <?php
 
-namespace dubroquin\datatables;
+namespace dubroquin\vuetable;
 
 use Exception;
 use Illuminate\Http\Request as IlluminateRequest;
@@ -8,7 +8,7 @@ use Illuminate\Http\Request as IlluminateRequest;
 /**
  * Class Request.
  *
- * @package dubroquin\datatables
+ * @package dubroquin\vuetable;
  * @method input($key, $default = null)
  * @method has($key)
  * @method query($key, $default = null)
@@ -76,14 +76,14 @@ class Request
     public function checkLegacyCode()
     {
         if (! $this->request->input('draw') && $this->request->input('sEcho')) {
-            throw new Exception('DataTables legacy code is not supported! Please use DataTables 1.10++ coding convention.');
+            throw new Exception('vuetable legacy code is not supported! Please use vuetable 1.10++ coding convention.');
         } elseif (! $this->request->input('draw') && ! $this->request->input('columns')) {
             throw new Exception('Insufficient parameters');
         }
     }
 
     /**
-     * Check if Datatables is searchable.
+     * Check if vuetable is searchable.
      *
      * @return bool
      */
@@ -93,7 +93,7 @@ class Request
     }
 
     /**
-     * Check if Datatables must uses regular expressions
+     * Check if vuetable must uses regular expressions
      *
      * @param integer $index
      * @return string
@@ -127,7 +127,7 @@ class Request
     }
 
     /**
-     * Check if Datatables ordering is enabled.
+     * Check if vuetable ordering is enabled.
      *
      * @return bool
      */
@@ -215,7 +215,7 @@ class Request
     }
 
     /**
-     * Check if Datatables allow pagination.
+     * Check if vuetable allow pagination.
      *
      * @return bool
      */

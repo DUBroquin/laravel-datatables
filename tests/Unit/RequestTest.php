@@ -1,10 +1,10 @@
 <?php
 
-namespace dubroquin\datatables\Tests\Unit;
+namespace dubroquin\vuetable;\Tests\Unit;
 
 use Exception;
-use dubroquin\datatables\Request;
-use dubroquin\datatables\Tests\TestCase;
+use dubroquin\vuetable;\Request;
+use dubroquin\vuetable;\Tests\TestCase;
 
 class RequestTest extends TestCase
 {
@@ -15,7 +15,7 @@ class RequestTest extends TestCase
         try {
             $request->checkLegacyCode();
         } catch (Exception $e) {
-            $this->assertContains('DataTables legacy code is not supported!', $e->getMessage());
+            $this->assertContains('vuetable legacy code is not supported!', $e->getMessage());
         }
     }
 
@@ -142,7 +142,7 @@ class RequestTest extends TestCase
     }
 
     /**
-     * @return \dubroquin\datatables\Request
+     * @return \dubroquin\vuetable;\Request
      */
     protected function getRequest()
     {
