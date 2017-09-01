@@ -1,13 +1,13 @@
 <?php
 
-namespace dubroquin\datatables\Facades;
+namespace dubroquin\vuetable\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
  * Class vuetable.
  *
- * @package dubroquin\datatables\Facades
+ * @package dubroquin\vuetable\Facades
  * @author  Arjay Angeles <aqangeles@gmail.com>
  */
 class Vuetable extends Facade

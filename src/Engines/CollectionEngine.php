@@ -1,18 +1,18 @@
 <?php
 
-namespace dubroquin\datatables\Engines;
+namespace dubroquin\vuetable\Engines;
 
 use Closure;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use dubroquin\datatables\Request;
+use dubroquin\vuetable\Request;
 
 /**
  * Class CollectionEngine.
  *
- * @package dubroquin\datatables\Engines
+ * @package dubroquin\vuetable\Engines
  * @author  Arjay Angeles <aqangeles@gmail.com>
  */
 class CollectionEngine extends BaseEngine
@@ -35,7 +35,7 @@ class CollectionEngine extends BaseEngine
      * CollectionEngine constructor.
      *
      * @param \Illuminate\Support\Collection $collection
-     * @param \dubroquin\datatables\Request $request
+     * @param \dubroquin\vuetable\Request $request
      */
     public function __construct(Collection $collection, Request $request)
     {

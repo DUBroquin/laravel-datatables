@@ -1,15 +1,15 @@
 <?php
 
-namespace dubroquin\datatables\Processors;
+namespace dubroquin\vuetable\Processors;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Config;
-use dubroquin\datatables\Helper;
+use dubroquin\vuetable\Helper;
 
 /**
  * Class DataProcessor.
  *
- * @package dubroquin\datatables\;
+ * @package dubroquin\vuetable\;
  * @author  Arjay Angeles <aqangeles@gmail.com>
  */
 class DataProcessor

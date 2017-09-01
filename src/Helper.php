@@ -1,6 +1,6 @@
 <?php
 
-namespace dubroquin\datatables\;
+namespace dubroquin\vuetable\;
 
 use DateTime;
 use Illuminate\Contracts\Support\Arrayable;
@@ -11,7 +11,7 @@ use Illuminate\View\Compilers\BladeCompiler;
 /**
  * Class Helper.
  *
- * @package dubroquin\datatables\;
+ * @package dubroquin\vuetable\;
  * @author  Arjay Angeles <aqangeles@gmail.com>
  */
 class Helper

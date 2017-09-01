@@ -27,10 +27,10 @@ $ composer require yajra/laravel-vuetable-oracle:^7.5
 ```
 
 #### Service Provider
-`dubroquin\datatables\vuetableServiceProvider::class`
+`dubroquin\vuetable\vuetableServiceProvider::class`
 
 #### Facade
-`vuetable` facade is automatically registered as an alias for `dubroquin\datatables\Facades\vuetable` class. 
+`vuetable` facade is automatically registered as an alias for `dubroquin\vuetable\Facades\vuetable` class. 
 
 #### Configuration and Assets
 ```bash

@@ -1,15 +1,15 @@
 <?php
 
-namespace dubroquin\datatables\Engines;
+namespace dubroquin\vuetable\Engines;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
-use dubroquin\datatables\Request;
+use dubroquin\vuetable\Request;
 
 /**
  * Class EloquentEngine.
  *
- * @package dubroquin\datatables\Engines
+ * @package dubroquin\vuetable\Engines
  * @author  Arjay Angeles <aqangeles@gmail.com>
  */
 class EloquentEngine extends QueryBuilderEngine
@@ -32,7 +32,7 @@ class EloquentEngine extends QueryBuilderEngine
 
     /**
      * @param mixed $model
-     * @param \dubroquin\datatables\Request $request
+     * @param \dubroquin\vuetable\Request $request
      */
     public function __construct($model, Request $request)
     {
